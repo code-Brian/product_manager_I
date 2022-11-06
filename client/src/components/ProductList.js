@@ -20,7 +20,7 @@ export const ProductList = (props) => {
                 {
                     products?.map((product, index) => 
                         <li key={index} className="border rounded p-2 mb-2">
-                            <p className="font-bold">{product.title}</p>
+                            <Link to={`/products/${product._id}`} className="font-bold hover:text-gray-300">{product.title}</Link>
                             <p>${product.price}</p>
                             <p className="text-sm">{product.description}</p>
                         </li>
