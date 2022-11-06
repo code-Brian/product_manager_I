@@ -3,22 +3,17 @@ const Product = require('../models/product.model')
 
 const ProductController = {
     // CREATE
-    create: (req,res) => {
-        Product.create(req.body)
-        .then(product=>{
-            console.log(req.body)
-            response.json(product)
-        })
-        .catch((err) => {
-            res.json({msg: "Something went wrong...", error: err})
-        })
+    create: (request,response) => {
+        Product.create(request.body)
+        .then(product => {response.json(product)})  
+        .catch((err) => {response.json({msg: "Something went wrong...", error: err})})
     },
     // READ 
     getAll: (request,response) => {
         Product.find()
         .then((allProducts) => {
             response.json(allProducts)
-        })
+        })  
         .catch((err) => {response.json({err})})
     },
     getOne: (req,res) => {
